@@ -1,0 +1,289 @@
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      operationId: AppController_healthcheck
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - health-check
+  /curso:
+    post:
+      operationId: CursoController_post
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CursoDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_0
+        - curso
+    get:
+      operationId: CursoController_getAll
+      parameters:
+        - name: query
+          required: false
+          in: query
+          description: query - Filter. e.g. col1:v1,col2:v2 …
+          schema:
+            type: string
+        - name: fields
+          required: false
+          in: query
+          description: fields - Fields returned. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: sortby
+          required: false
+          in: query
+          description: sortby - Sorted-by fields. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: order
+          required: false
+          in: query
+          description: >-
+            order - Order corresponding to each sortby field, if single value,
+            apply to all sortby fields. e.g. desc,asc …
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: limit - Limit the size of result set. Must be an integer
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: offset - Start position of result set. Must be an integer
+          schema:
+            type: string
+        - name: populate
+          required: false
+          in: query
+          description: populate - show subqueries. Must be a boolean
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+  /curso/{_id}:
+    get:
+      operationId: CursoController_getById
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+    put:
+      operationId: CursoController_put
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CursoDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+    delete:
+      operationId: CursoController_delete
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+  /recurso:
+    post:
+      operationId: RecursoController_post
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecursoDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_1
+        - recurso
+    get:
+      operationId: RecursoController_getAll
+      parameters:
+        - name: query
+          required: false
+          in: query
+          description: query - Filter. e.g. col1:v1,col2:v2 …
+          schema:
+            type: string
+        - name: fields
+          required: false
+          in: query
+          description: fields - Fields returned. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: sortby
+          required: false
+          in: query
+          description: sortby - Sorted-by fields. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: order
+          required: false
+          in: query
+          description: >-
+            order - Order corresponding to each sortby field, if single value,
+            apply to all sortby fields. e.g. desc,asc …
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: limit - Limit the size of result set. Must be an integer
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: offset - Start position of result set. Must be an integer
+          schema:
+            type: string
+        - name: populate
+          required: false
+          in: query
+          description: populate - show subqueries. Must be a boolean
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+  /recurso/{_id}:
+    get:
+      operationId: RecursoController_getById
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+    put:
+      operationId: RecursoController_put
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecursoDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+    delete:
+      operationId: RecursoController_delete
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+info:
+  title: mediador
+  description: API CRUD mediador
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    CursoDto:
+      type: object
+      properties:
+        nombre_curso:
+          type: string
+        periodo_academico:
+          type: string
+        oferta:
+          type: string
+        fecha_creacion:
+          format: date-time
+          type: string
+        fecha_modificacion:
+          format: date-time
+          type: string
+      required:
+        - nombre_curso
+        - periodo_academico
+        - oferta
+        - fecha_creacion
+        - fecha_modificacion
+    RecursoDto:
+      type: object
+      properties:
+        curso_id:
+          type: string
+        nombre:
+          type: string
+        descripcion:
+          type: string
+        documento:
+          type: string
+        metadatos:
+          type: object
+        activo:
+          type: boolean
+        fecha_creacion:
+          format: date-time
+          type: string
+        fecha_modificacion:
+          format: date-time
+          type: string
+      required:
+        - curso_id
+        - nombre
+        - descripcion
+        - documento
+        - metadatos
+        - activo
+        - fecha_creacion
+        - fecha_modificacion
