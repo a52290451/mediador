@@ -113,6 +113,18 @@
                 "tags": [
                     "curso"
                 ]
+            },
+            "delete": {
+                "operationId": "CursoController_deleteAll",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "curso"
+                ]
             }
         },
         "/curso/{_id}": {
@@ -288,6 +300,18 @@
                 "tags": [
                     "recurso"
                 ]
+            },
+            "delete": {
+                "operationId": "RecursoController_deleteAll",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "recurso"
+                ]
             }
         },
         "/recurso/{_id}": {
@@ -367,7 +391,7 @@
         }
     },
     "info": {
-        "title": "mediador",
+        "title": "mediador_crud",
         "description": "API CRUD mediador",
         "version": "1.0",
         "contact": {}

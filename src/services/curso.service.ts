@@ -73,4 +73,11 @@ export class CursoService {
         }
         return deleted;
     }
+
+    // Implementación del método deleteAll
+    async deleteAll(): Promise<{ deletedCount: number }> {
+        const result = await this.mainModel.deleteMany({});
+        return { deletedCount: result.deletedCount };
+    }
+
 }

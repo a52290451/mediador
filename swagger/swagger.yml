@@ -75,6 +75,13 @@ paths:
         '200':
           description: ''
       tags: *ref_0
+    delete:
+      operationId: CursoController_deleteAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
   /curso/{_id}:
     get:
       operationId: CursoController_getById
@@ -184,6 +191,13 @@ paths:
         '200':
           description: ''
       tags: *ref_1
+    delete:
+      operationId: RecursoController_deleteAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
   /recurso/{_id}:
     get:
       operationId: RecursoController_getById
@@ -228,7 +242,7 @@ paths:
           description: ''
       tags: *ref_1
 info:
-  title: mediador
+  title: mediador_crud
   description: API CRUD mediador
   version: '1.0'
   contact: {}

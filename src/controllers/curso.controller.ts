@@ -103,4 +103,23 @@ export class CursoController {
             })
         })
     }
+
+    @Delete()
+    async deleteAll(@Res() res) {
+        this.cursoService.deleteAll().then(result => {
+            res.status(HttpStatus.OK).json({
+                Success: true,
+                Status: HttpStatus.OK,
+                Message: 'All records deleted successfully',
+                Data: result
+            })
+        }).catch(error => {
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
+                Success: false,
+                Status: HttpStatus.INTERNAL_SERVER_ERROR,
+                Message: 'Error service DeleteAll: Could not delete records',
+                Data: error.message
+            })
+        })
+    }
 }

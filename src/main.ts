@@ -19,7 +19,7 @@ async function bootstrap() {
   app.enableCors();
 
   const config = new DocumentBuilder()
-    .setTitle('mediador')
+    .setTitle('mediador_crud')
     .setDescription('API CRUD mediador')
     .setVersion('1.0')
     .build();
